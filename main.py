@@ -1,5 +1,4 @@
-# import tkinter as tk
-import _tkinter as tk
+import tkinter
 import time
 import threading
 import random
@@ -7,7 +6,7 @@ import random
 class TypeSpeedGUI:
 
    def __init__(self):
-      self.root = tk.Tk()
+      self.root = tkinter.Tk()
       self.root.title("Typing Speed Application")
       self.root.geometry("800x600")
 
@@ -17,19 +16,19 @@ class TypeSpeedGUI:
       # self.texts = f.read().split("\n")
       self.texts = open("index.txt", "r").read().split("\n")
 
-      self.frame = tk.Frame(self.root)
+      self.frame = tkinter.Frame(self.root)
 
-      self.sample_label = tk.Label(self.frame, text=random.choice(self.texts), font=("Helvetica", 18))
+      self.sample_label = tkinter.Label(self.frame, text=random.choice(self.texts), font=("Helvetica", 18))
       self.sample_label.grid(row=0, column=0, columnspan=2, padx=5, pady=10)
 
-      self.input_entry = tk.Entry(self.frame, width=40, font=("Helvetica", 24))
+      self.input_entry = tkinter.Entry(self.frame, width=40, font=("Helvetica", 24))
       self.input_entry.grid(row=1, column=0, columnspan=2, padx=5, pady=10)
       self.input_entry.bind("<KeyRelease>", self.start)
 
-      self.speed_label = tk.Label(self.frame, text="Speed: \n0.00 CPS\n0.00 CPM\n0.00 WPS\n0.00 WPS", font=("Helvetica", 18))
+      self.speed_label = tkinter.Label(self.frame, text="Speed: \n0.00 CPS\n0.00 CPM\n0.00 WPS\n0.00 WPS", font=("Helvetica", 18))
       self.speed_label.grid(row=2, column=0, columnspan=2, padx=5, pady=10)
 
-      self.reset_button = tk.Button(self.frame, text="Reset", command=self.reset, font=("Helvetica", 24))
+      self.reset_button = tkinter.Button(self.frame, text="Reset", command=self.reset, font=("Helvetica", 24))
       self.reset_button.grid(row=3, column=0, columnspan=2, padx=5, pady=10)
 
       self.frame.pack(expand=True)
@@ -68,6 +67,6 @@ class TypeSpeedGUI:
       self.counter = 0
       self.speed_label.config(text="Speed: \n0.00 CPS\n0.00 CPM\n0.00 WPS\n0.00 WPS")
       self.sample_label.config(text=random.choice(self.texts))
-      self.input_entry.delete(0, tk.END)
+      self.input_entry.delete(0, tkinter.END)
 
 TypeSpeedGUI()
