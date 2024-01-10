@@ -1,5 +1,4 @@
 import tkinter as tk
-from tkinter import *
 import time
 import threading
 import random
